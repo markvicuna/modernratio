@@ -49,6 +49,7 @@ a{
 
 #contact-links-wrapper a {
     text-align: center;
+    line-height: 1;
     color: yellow;
     margin: 0 15px;
     background-color: red;
