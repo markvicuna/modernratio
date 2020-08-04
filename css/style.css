@@ -28,7 +28,7 @@ main {
 h1 {
     font-size: 75px;
     letter-spacing: 5px;
-    line-height: 0.8;
+    line-height: 0.9;
     color: yellow;
     text-shadow: 4px 3px 2px red;
 }
@@ -48,6 +48,7 @@ a{
 }
 
 #contact-links-wrapper a {
+    text-align: center;
     color: yellow;
     margin: 0 15px;
     background-color: red;
