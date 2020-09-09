@@ -8,6 +8,7 @@ body {
     background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/background.jpg");
     background-position: center;
     background-size: cover;
+    background-attachment: fixed;
     font-family: 'Staatliches', sans-serif;
     display: flex;
     justify-content: center;
@@ -26,7 +27,7 @@ main {
 }
 
 h1 {
-    font-size: 75px;
+    font-size: 52px;
     letter-spacing: 5px;
     line-height: 0.9;
     color: yellow;
@@ -45,16 +46,20 @@ a{
 #contact-links-wrapper {
     display: flex;
     margin-top: 25px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #contact-links-wrapper a {
+    font-size: 20px;
     text-align: center;
     line-height: 1;
     color: yellow;
-    margin: 0 15px;
+    margin: 0 15px 12px;
     background-color: red;
     border: 2px solid yellow;
-    padding: 2px 10px;
+    padding: 6px 16px;
+    width: 170px;
 }
 
 #contact-links-wrapper a:hover {
@@ -62,3 +67,16 @@ a{
     color: red;
     transition: 0.2s;
 }
+
+#underline {
+    border-bottom: 2px solid yellow;
+    margin-bottom: 5px;
+    padding-bottom: 2px;
+    box-shadow: 0px 2px 0px red;
+}
+
+@media only screen and (min-width: 840px) {
+    h1 {
+        font-size: 145px;
+    }
+  }
