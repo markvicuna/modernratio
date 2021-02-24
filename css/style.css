@@ -149,7 +149,6 @@ ul {
 .items {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
 }
 
 .featured {
@@ -204,7 +203,10 @@ ul {
 
     .social-link-group {
       justify-content: center;
-      gap: 15px;
+    }
+
+    .social-link-group > li {
+      margin: 0 8px;
     }
 
     .social-link-group > li > a > i {
