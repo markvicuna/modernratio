@@ -1,82 +1,213 @@
+:root {
+    --off-black: rgb(59,59,59);
+    --gray: rgb(150,150,150);
+    --light: rgb(225,225,225);
+    --hotpink: rgb(255,40,180);
+  }
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Helvetica, Arial, sans-serif;
+    color: var(--off-black);
 }
 
 body {
-    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url("../images/background.jpg");
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Staatliches', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100vh;
-}
-
-main { 
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
     padding: 20px;
 }
 
-h1 {
-    font-size: 44px;
-    letter-spacing: 5px;
-    line-height: 0.9;
-    color: yellow;
-    text-shadow: 4px 3px 1px red;
-}
-
-h2 {
-    font-size: 25px;
-    letter-spacing: 1px;
-}
-
-a{
+a {
     text-decoration: none;
 }
 
-#contact-links-wrapper {
+ul {
+  list-style: none;
+}
+
+.container {
     display: flex;
-    margin-top: 25px;
-    flex-wrap: wrap;
-    justify-content: center;
+    max-width: 900px;
+    margin: 20px auto;
 }
 
-#contact-links-wrapper a {
-    font-size: 20px;
-    text-align: center;
-    line-height: 1;
-    color: yellow;
-    margin: 0 15px 12px;
-    background-color: red;
-    border: 2px solid yellow;
-    padding: 6px 16px;
-    width: 170px;
+.img {
+    width: 100%;
 }
 
-#contact-links-wrapper a:hover {
-    background-color: yellow;
-    color: red;
-    transition: 0.2s;
+.bio {
+    width: 200px;
+    margin-top: 30px;
+    /* margin-right: 20px; */
+    position: fixed;
 }
 
-#underline {
-    border-bottom: 2px solid yellow;
-    margin-bottom: 5px;
-    padding-bottom: 2px;
-    box-shadow: 0px 2px 0px red;
+.bio > h1 {
+  line-height: 1;
+  margin-bottom: 15px;
+  letter-spacing: -3px;
 }
 
-@media only screen and (min-width: 840px) {
-    h1 {
-        font-size: 145px;
+.bio > img {
+  margin-bottom: 15px;
+  display: block;
+}
+
+.bio > p {
+  font-size: 14px;
+  font-family: Courier, 'Courier New', monospace;
+}
+
+.bio .note {
+  font-size: 14px;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.social-link-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.social-link-group > li > a {
+  display: flex;
+}
+
+.social-link-group > li > a:hover > i {
+  color: var(--hotpink);
+}
+
+.social-link-group > li > a > i {
+  font-size: 24px;
+  text-align: center;
+}
+
+.items > section {
+  padding: 10px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  border: 2px solid var(--gray);
+  flex: 0 48%;
+}
+
+.collection {
+  margin-bottom: 50px;
+}
+
+.collection > h2 {
+  color: var(--hotpink);
+  border-bottom: 2px dotted var(--hotpink);
+  margin-bottom: 20px;
+  font-weight: 100;
+  letter-spacing: -1px;
+}
+
+.items > section > h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.items > section > p {
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+}
+
+.items > section > a > i {
+  font-size: 30px;
+}
+
+.items > section > a:hover > i {
+  color: var(--hotpink);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+.tags > div {
+  margin-right: 4px;
+  margin-bottom: 4px;
+  background-color: var(--hotpink);
+  color: rgb(255,255,255);
+  padding: 2px 5px;
+  font-size: 14px;
+}
+
+.items > section > img {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.featured {
+  flex-direction: column;
+}
+
+.footer {
+  text-align: center;
+  font-size: 14px;
+  letter-spacing: -1px;
+}
+
+.main {
+  flex: 1;
+  margin-left: 220px;
+}
+
+
+
+@media only screen and (max-width: 700px) {
+    .container {
+      flex-direction: column;
     }
-  }
+
+    .bio {
+      position: relative;
+      width: 100%;
+      margin-bottom: 40px;
+      margin-top: 0;
+      text-align: center;
+    }
+
+    .bio > h1 {
+      font-size: 40px;
+    }
+
+    .bio > img {
+      margin: 0 auto 15px auto;
+    }
+
+    .main {
+      margin: 0;
+    }
+    
+    .items {
+      flex-direction: column;
+    }
+
+    .profile-pic {
+      max-width: 250px;
+    }
+
+    .social-link-group {
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .social-link-group > li > a > i {
+      font-size: 30px;
+    }
+}

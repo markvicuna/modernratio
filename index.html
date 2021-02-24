@@ -1,31 +1,166 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico'>
-    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
-    <title>Mark Vicuna / Modern Ratio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel='shortcut icon' type='image/x-icon' href='images/favicon.ico'>
+  <script src="https://kit.fontawesome.com/4b03d3624c.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Yantramanav:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <title>Mark Vicuña</title>
 </head>
+
 <body>
-    <main>
-        <h1 id="underline">MARK VICUÑA</h1>
-        <h1>MODERN RATIO</h1>
-        <div id="contact-links-wrapper">
-            <a href="https://www.instagram.com/modernratio/" target="_blank">
-                <div></div><span>Generate Photo</span>
+  <div class="container">
+
+    <header class="bio">
+      <h1 class="title">MARK VICUÑA</h1>
+      <img src="images/profile.jpg" alt="Photo of Mark Vicuña" class="img profile-pic">
+      <div class="note">
+        IT Student / Future Frontend Developer / Videographer / Photographer
+      </div>
+      <ul class="social-link-group">
+        <li>
+          <a href="mailto:mark.rvicuna@gmail.com">
+            <i class="far fa-envelope"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/markvicuna/" target="_blank">
+            <i class="fab fa-github"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/mark-vicu%C3%B1a-487614207/" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.instagram.com/modernratio/" target="_blank">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/user/MarkVicuna" target="_blank">
+            <i class="fab fa-youtube"></i>
+          </a>
+        </li>
+        <li>
+          <a href="https://open.spotify.com/track/6gaPfdDfLQucC6nAzD65BC" target="_blank">
+            <i class="fab fa-spotify"></i>
+          </a>
+        </li>
+      </ul>
+      <p>
+        Hi there! Look at you, all curious to discover what I've been up to! Here you'll find some of the things I've made. Lately I've been coding more, gearing up to start working as a frontend developer (fingers crossed)!  
+      </p>
+    </header>
+
+    <main class="main">
+      <article class="collection">
+        <h2>Featured Projects</h2>
+        <div class="items featured">
+          <section>
+            <h3>Binary Decisions</h3>
+            <img src="images/bd_cover.png" alt="" class="img">
+            <p>Struggling to figure out which tasks to prioritize? Can't decide in what order to rank your favorite movies? Binary Decisions is an easy way to rank your options by deciding between two options at a time!</p>
+            <div class="tags">
+              <div>HTML</div>
+              <div>CSS</div>
+              <div>JavaScript</div>
+            </div>
+            <a href="https://markvicuna.github.io/binary-decisions/" target="_blank">
+              <i class="fas fa-external-link-square-alt"></i>
             </a>
-            <a href="https://youtu.be/2gv711mBF2A" target="_blank">
-                <div></div><span>Generate Video</span>
+          </section>
+          <section>
+            <h3>Who Said That?! Breaking Bad Edition</h3>
+            <img src="images/brba_cover.png" alt="" class="img">
+            <p>Who Said That?!?! A quotes quiz for hardcore fans of Breaking Bad!</p>
+            <div class="tags">
+              <div>React.js</div>
+              <div>Node.js</div>
+              <div>Express.js</div>
+              <div>MongoDB</div>
+              <div>Styled-Components</div>
+              <div>Breaking Bad API</div>
+            </div>
+            <a href="https://nameless-river-21316.herokuapp.com/" target="_blank">
+              <i class="fas fa-external-link-square-alt"></i>
             </a>
-            <a href="https://open.spotify.com/track/6gaPfdDfLQucC6nAzD65BC" target="_blank">
-                <div></div><span>Generate Music</span>
-            </a>
-            <a href="mailto:mark.rvicuna@gmail.com?subject=I'm In Love With Your Work, Let's Collaborate!" target="_blank">
-                <div></div><span>Generate e-mail</span>
-            </a>
+          </section>
         </div>
+      </article>
+
+      <article class="collection">
+        <h2>Music Videos</h2>
+        <div class="items">
+          <section>
+            <h3>SOTIA - JADE JOHDATTAA</h3>
+            <img src="images/jade_cover.jpg" alt="" class="img">
+            <p>A 'Wizard of Oz' disco dance party.</p>
+            <div class="tags">
+              <div>Adobe Premiere Pro</div>
+              <div>Lumix GX80</div>
+            </div>
+            <a href="https://youtu.be/2gv711mBF2A" target="_blank">
+              <i class="fas fa-external-link-square-alt"></i>
+            </a>
+          </section>
+          <section>
+            <h3>AYVY - And Make You Mine</h3>
+            <img src="images/amym_cover.jpg" alt="" class="img">
+            <p>Snowy landscapes, perilous mountains, mystical travellers. The closest we've come to making an 'epic'.</p>
+            <div class="tags">
+              <div>Adobe Premiere Pro</div>
+              <div>Adobe After Effects</div>
+              <div>Cinema 4D</div>
+              <div>Google Earth</div>
+              <div>Sony a7 III</div>
+              <div>DJI Mavic Zoom 2</div>
+            </div>
+            <a href="https://youtu.be/fgMczsCBJOc" target="_blank">
+              <i class="fas fa-external-link-square-alt"></i>
+            </a>
+          </section>
+          <section>
+            <h3>Sotia - Viivy Vierelläni</h3>
+            <img src="images/vv_cover.jpg" alt="" class="img">
+            <p>A beach, a suitcase, and a past that's catching up. Genre: full-blown mystery drama.</p>
+            <div class="tags">
+              <div>Adobe Premiere Pro</div>
+              <div>Adobe After Effects</div>
+              <div>Lumix GX80</div>
+            </div>
+            <a href="https://youtu.be/fgMczsCBJOc" target="_blank">
+              <i class="fas fa-external-link-square-alt"></i>
+            </a>
+          </section>
+          <section>
+            <h3>AYVY - D.O.S.</h3>
+            <img src="images/dos_cover.jpg" alt="" class="img">
+            <p>A man, a machine, and a room full of sudoku puzzles. No questions asked.</p>
+            <div class="tags">
+              <div>Adobe Premiere Pro</div>
+              <div>Adobe After Effects</div>
+              <div>Canon 70D</div>
+              <div>DJI Phantom 4 Pro</div>
+            </div>
+            <a href="https://youtu.be/xw2z4xm283M" target="_blank">
+              <i class="fas fa-external-link-square-alt"></i>
+            </a>
+          </section>
+        </div>
+      </article>
     </main>
+
+  </div>
+
+  <footer class="footer">
+    © Mark Vicuña, 2021
+  </footer>
 </body>
+
 </html>
