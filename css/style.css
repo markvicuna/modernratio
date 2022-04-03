@@ -104,7 +104,7 @@ ul {
   letter-spacing: -1px;
 }
 
-.items > section > h3 {
+.items > section h3 {
   font-size: 24px;
   text-transform: uppercase;
   letter-spacing: -1px;
@@ -112,12 +112,16 @@ ul {
   margin-bottom: 8px;
 }
 
+.items > section .cover:hover {
+  text-decoration: underline;
+}
+
 .items > section > p {
   letter-spacing: -1px;
   margin-bottom: 8px;
 }
 
-.items > section > a {
+.items > section > .link {
   margin-right: 5px;
 }
 
