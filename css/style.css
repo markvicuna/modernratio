@@ -27,8 +27,10 @@ ul {
 
 .container {
     display: flex;
+    flex-direction: column;
     max-width: 900px;
-    margin: 20px auto;
+    gap: 30px;
+    margin: 50px auto;
 }
 
 .img {
@@ -36,15 +38,13 @@ ul {
 }
 
 .bio {
-    width: 200px;
-    margin-top: 30px;
-    /* margin-right: 20px; */
-    position: fixed;
+    max-width: 200px;
+    margin: 0 auto;
 }
 
 .bio > h1 {
   line-height: 1;
-  margin-bottom: 15px;
+  margin-bottom: 2px;
   letter-spacing: -3px;
 }
 
@@ -60,15 +60,15 @@ ul {
 
 .bio .note {
   font-size: 14px;
-  margin-bottom: 15px;
   font-style: italic;
+  text-align: center;
 }
 
 .social-link-group {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 15px;
+  margin-top: 25px;
 }
 
 .social-link-group > li > a {
@@ -171,9 +171,18 @@ ul {
 
 .main {
   flex: 1;
-  margin-left: 220px;
 }
 
+.under-construction {
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: -1px;
+  line-height: 1;
+  padding: 10px;
+  border: 2px solid var(--gray);
+  flex: 0 48%;
+  text-align: center;
+}
 
 
 @media only screen and (max-width: 700px) {
