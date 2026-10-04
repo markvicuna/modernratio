@@ -10,6 +10,10 @@
   --ink: rgb(20, 18, 16);
   --red: rgb(196, 69, 45);
   --font-display: Archivo, 'Arial Narrow', sans-serif;
+  /* Inked-print text: uneven density (fade) and sparse ink dropouts (specks). */
+  --ink-fade: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.012 .02' numOctaves='3' seed='4' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.3 0 0 0 0.775'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23f%29'/%3E%3C/svg%3E");
+  --ink-specks: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.55' numOctaves='2' seed='9' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -5 0 0 0 4.4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url%28%23f%29'/%3E%3C/svg%3E");
+  --ink-line: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='8' viewBox='0 0 800 8' preserveAspectRatio='none'%3E%3Cfilter id='f' x='0' y='0' width='100%25' height='100%25'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.01 .12' numOctaves='2' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 -0.35 0 0 0 1.15'/%3E%3C/filter%3E%3Crect width='800' height='8' filter='url%28%23f%29'/%3E%3C/svg%3E");
   --font-mono: 'IBM Plex Mono', Menlo, Consolas, monospace;
 }
 
@@ -228,7 +232,6 @@ a:hover {
 /* Hairline above the About section only. */
 .about {
   padding-top: 1rem;
-  border-top: 1px solid var(--ink);
 }
 
 .section-label {
@@ -276,7 +279,6 @@ a:hover {
   max-width: 68.75rem;
   margin: 0 auto;
   padding-top: 1.25rem;
-  border-top: 1px solid var(--ink);
   font-size: 0.75rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -323,4 +325,50 @@ a:hover {
     width: 4rem;
     height: 4rem;
   }
+}
+
+/* Inked print effect on text: soft irregular edges and uneven ink density.
+   Headings get the fade only; other text also gets sparse specks. */
+
+.logo,
+.section-label {
+  filter: url(#ink-rough);
+  -webkit-mask-image: var(--ink-fade);
+  mask-image: var(--ink-fade);
+}
+
+.note,
+.bio-row,
+.about-text,
+.details,
+.index,
+.footer span {
+  filter: url(#ink-rough);
+  -webkit-mask-image: var(--ink-specks), var(--ink-fade);
+  mask-image: var(--ink-specks), var(--ink-fade);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
+}
+
+/* Masks need a block-level box; keep the footer rule itself unaffected. */
+.footer span {
+  display: inline-block;
+}
+
+/* Separators: hand-inked lines, slightly wobbly with uneven ink density. */
+.about::before,
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1.5px;
+  background: var(--ink);
+  opacity: 0.5;
+  filter: url(#ink-line);
+  -webkit-mask-image: var(--ink-line);
+  mask-image: var(--ink-line);
+  -webkit-mask-size: 800px 100%;
+  mask-size: 800px 100%;
 }
