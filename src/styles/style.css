@@ -204,6 +204,7 @@ a:hover {
 .details {
   display: flex;
   flex-direction: column;
+  gap: 0.4rem; /* a little air on phones; packed tight again from tablet width */
 }
 
 .details > div {
@@ -301,6 +302,10 @@ a:hover {
     grid-template-columns: 1.4fr 1fr;
     gap: 3rem;
     align-items: start;
+  }
+
+  .details {
+    gap: 0;
   }
 }
 
