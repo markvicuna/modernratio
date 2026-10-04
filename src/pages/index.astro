@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Video from '../components/Video.astro';
 
 const links = [
   { href: 'https://www.instagram.com/mark.vicuna/', label: 'Instagram' },
@@ -7,7 +8,7 @@ const links = [
   { href: 'https://www.linkedin.com/in/mark-vicu%C3%B1a-487614207/', label: 'LinkedIn' },
 ];
 
-// YouTube video ids
+// YouTube video ids, newest first. The first one is featured.
 const videos = [
   'jyJ9Xpx1SMI',
   'E78VMQqGDb0',
@@ -16,6 +17,8 @@ const videos = [
   'pqkWx4DrbwQ',
   'W4NNDY4X9cc',
 ];
+
+const [featured, ...recent] = videos;
 ---
 
 <Layout>
@@ -37,19 +40,18 @@ const videos = [
       </div>
     </header>
     <main class="main">
-      {videos.map((v, i) => (
-        <figure class="video-item">
-          <iframe
-            class="video"
-            src={`https://www.youtube.com/embed/${v}`}
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          />
-          <figcaption class="index">MV/F/{String(videos.length - i).padStart(3, '0')}</figcaption>
-        </figure>
-      ))}
+      <section>
+        <h2 class="section-label">Featured project</h2>
+        <Video id={featured} number={videos.length} />
+      </section>
+      <section>
+        <h2 class="section-label">Recent work</h2>
+        <div class="grid">
+          {recent.map((id, i) => (
+            <Video id={id} number={videos.length - 1 - i} />
+          ))}
+        </div>
+      </section>
     </main>
   </div>
 
