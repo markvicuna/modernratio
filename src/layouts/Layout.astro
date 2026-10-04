@@ -18,6 +18,17 @@ const { title = 'Mark Vicuña' } = Astro.props;
     <title>{title}</title>
   </head>
   <body>
+    <!-- Roughens the edges of the decorative shapes so they look inked. -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <filter id="rough">
+        <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="noise" />
+        <feDisplacementMap in="SourceGraphic" in2="noise" scale="5" />
+      </filter>
+    </svg>
+    <div class="deco" aria-hidden="true">
+      <span class="deco-slash"></span>
+      <span class="deco-dot"></span>
+    </div>
     <slot />
   </body>
 </html>

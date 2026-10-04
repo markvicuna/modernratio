@@ -30,6 +30,8 @@ body {
   font-family: var(--font-mono);
   font-size: 0.875rem;
   font-weight: 400;
+  position: relative;
+  overflow-x: clip;
 }
 
 a {
@@ -47,6 +49,48 @@ ul {
   gap: 1rem;
   max-width: 68.75rem;
   margin: 1.5rem auto 2.5rem;
+}
+
+/* Decorative shapes behind the header */
+
+.deco {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40rem;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.deco-slash,
+.deco-dot {
+  position: absolute;
+  background-image: var(--paper-specks), var(--paper-grain);
+  filter: url(#rough);
+}
+
+.deco-slash {
+  top: -4rem;
+  left: 84%;
+  width: 1.5rem;
+  height: 14rem;
+  background-color: var(--red);
+  transform: rotate(32deg);
+}
+
+.deco-dot {
+  top: 5.5rem;
+  left: 90%;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: var(--ink);
+}
+
+.container,
+.footer {
+  position: relative;
 }
 
 /* Header */
@@ -154,6 +198,19 @@ a:hover {
 @media (min-width: 56.25rem) {
   body {
     padding: 2.5rem;
+  }
+
+  .deco-slash {
+    left: 52%;
+    width: 2.75rem;
+    height: 30rem;
+  }
+
+  .deco-dot {
+    top: 6rem;
+    left: 38%;
+    width: 4rem;
+    height: 4rem;
   }
 
   /* Recent work in two columns. */
