@@ -9,14 +9,16 @@ const links = [
 ];
 
 // YouTube videos, newest first. The first one is featured.
+// `year` is when the work was completed (shown in the caption); `published` is the
+// YouTube upload date (used for the search engine structured data).
 const videos = [
-  { id: 'jyJ9Xpx1SMI', title: 'Minestrone Tapes', published: '2026-10-04T05:01:24-07:00' },
-  { id: 'E78VMQqGDb0', title: 'Eemeli Sahimaa, Practice Of / What Would I Do Without', published: '2025-01-09T14:15:01-08:00' },
-  { id: 'WsB-0KY_waI', title: 'Paul Flanders, Kudos Collection', published: '2025-01-08T12:24:58-08:00' },
-  { id: 'VyXuaYAQ-dU', title: 'Rudi Merz, Play in Progress', published: '2024-09-19T00:00:19-07:00' },
-  { id: 'pqkWx4DrbwQ', title: 'Lennart Engels, Sauna Stone Lab', published: '2025-01-09T08:00:51-08:00' },
-  { id: 'W4NNDY4X9cc', title: 'Marika Maijala, Island Artist', published: '2024-06-12T04:00:26-07:00' },
-].map((v) => ({ ...v, year: new Date(v.published).getUTCFullYear() }));
+  { id: 'jyJ9Xpx1SMI', title: 'Minestrone Tapes', year: 2026, published: '2026-10-04T05:01:24-07:00' },
+  { id: 'E78VMQqGDb0', title: 'Eemeli Sahimaa, Practice Of / What Would I Do Without', year: 2024, published: '2025-01-09T14:15:01-08:00' },
+  { id: 'WsB-0KY_waI', title: 'Paul Flanders, Kudos Collection', year: 2024, published: '2025-01-08T12:24:58-08:00' },
+  { id: 'VyXuaYAQ-dU', title: 'Rudi Merz, Play in Progress', year: 2024, published: '2024-09-19T00:00:19-07:00' },
+  { id: 'pqkWx4DrbwQ', title: 'Lennart Engels, Sauna Stone Lab', year: 2024, published: '2025-01-09T08:00:51-08:00' },
+  { id: 'W4NNDY4X9cc', title: 'Marika Maijala, Island Artist', year: 2024, published: '2024-06-12T04:00:26-07:00' },
+];
 
 const [featured, ...recent] = videos;
 
@@ -94,12 +96,12 @@ const structuredData = {
           <div class="about-text">
             <p>
               I’m a Helsinki-based filmmaker and developer interested in people, places and creative
-              practice. I work closely with artists, designers and makers, producing films from
-              start to finish.
+              practice. I enjoy making films from start to finish, collaborating closely with
+              artists, designers and makers.
             </p>
             <p>
-              I like to keep things small and close, focusing on atmosphere, process and the little
-              moments that happen naturally.
+              Keeping things small and close allows me to take an observational approach, documenting
+              process and the little moments that happen naturally.
             </p>
           </div>
           <dl class="details">
