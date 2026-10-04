@@ -231,7 +231,7 @@ a:hover {
 
 /* Hairline above the About section only. */
 .about {
-  padding-top: 2rem;
+  padding-top: 0;
 }
 
 .about .section-label {
@@ -364,7 +364,6 @@ a:hover {
 }
 
 /* Separators: hand-inked lines, slightly wobbly with uneven ink density. */
-.about::before,
 .footer::before {
   content: '';
   position: absolute;
