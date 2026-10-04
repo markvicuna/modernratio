@@ -2,11 +2,12 @@
 import Layout from '../layouts/Layout.astro';
 import Icon from '../components/Icon.astro';
 
+// Links starting with http open in a new tab (mailto: stays in place).
 const links = [
-  { href: 'https://www.instagram.com/mark.vicuna/', icon: 'instagram', label: 'Instagram', external: true },
-  { href: 'https://www.youtube.com/user/MarkVicuna', icon: 'youtube', label: 'YouTube', external: true },
-  { href: 'https://www.linkedin.com/in/mark-vicu%C3%B1a-487614207/', icon: 'linkedin', label: 'LinkedIn', external: true },
-  { href: 'mailto:mark.rvicuna@gmail.com', icon: 'envelope', label: 'Email', external: false },
+  { href: 'https://www.instagram.com/mark.vicuna/', icon: 'instagram', label: 'Instagram' },
+  { href: 'https://www.youtube.com/user/MarkVicuna', icon: 'youtube', label: 'YouTube' },
+  { href: 'https://www.linkedin.com/in/mark-vicu%C3%B1a-487614207/', icon: 'linkedin', label: 'LinkedIn' },
+  { href: 'mailto:mark.rvicuna@gmail.com', icon: 'envelope', label: 'Email' },
 ];
 
 // YouTube video ids
@@ -23,12 +24,17 @@ const videos = [
 <Layout>
   <div class="container">
     <header class="bio">
-      <h1 class="title">MARK VICUÑA</h1>
+      <h1>MARK VICUÑA</h1>
       <div class="note">Developer / Videographer</div>
       <ul class="social-link-group">
         {links.map((l) => (
           <li>
-            <a href={l.href} target={l.external ? '_blank' : undefined} aria-label={l.label}>
+            <a
+              class={`icon-${l.icon}`}
+              href={l.href}
+              target={l.href.startsWith('http') ? '_blank' : undefined}
+              aria-label={l.label}
+            >
               <Icon name={l.icon} />
             </a>
           </li>
@@ -37,18 +43,14 @@ const videos = [
     </header>
     <main class="main">
       {videos.map((v) => (
-        <div class="video-embed">
-          <iframe
-            width="560"
-            height="315"
-            src={`https://www.youtube.com/embed/${v}`}
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen
-          />
-        </div>
+        <iframe
+          class="video"
+          src={`https://www.youtube.com/embed/${v}`}
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        />
       ))}
     </main>
   </div>

@@ -1,29 +1,28 @@
 :root {
-    --off-black: rgb(59,59,59);
-    --gray: rgb(150,150,150);
-    --light: rgb(225,225,225);
-    --hotpink: rgb(255,40,180);
-  }
+  --off-black: rgb(59, 59, 59);
+  --hotpink: rgb(255, 40, 180);
+}
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arimo, Helvetica, Arial, sans-serif;
-    color: var(--off-black);
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    padding: 20px;
-    font-weight: 500;
+  padding: 20px;
+  font-family: Arimo, Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  color: var(--off-black);
 }
 
-h1, h2, h3 {
-    font-weight: 700;
+h1 {
+  font-weight: 700;
 }
 
 a {
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 
 ul {
@@ -31,21 +30,18 @@ ul {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    max-width: 700px;
-    gap: 40px;
-    margin: 50px auto;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  max-width: 700px;
+  margin: 50px auto;
 }
 
-.img {
-    width: 100%;
-}
+/* Header */
 
 .bio {
-    margin: 0 auto;
-    text-align: center;
+  text-align: center;
 }
 
 .bio > h1 {
@@ -54,41 +50,25 @@ ul {
   letter-spacing: -1px;
 }
 
-.bio > img {
-  margin-bottom: 15px;
-  display: block;
-}
-
-.bio > p {
-  font-size: 14px;
-  font-family: Courier, 'Courier New', monospace;
-}
-
 .bio .note {
   font-size: 14px;
   font-style: italic;
-  text-align: center;
 }
 
 .social-link-group {
   display: flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  margin-top: 25px;
   gap: 10px;
+  margin-top: 25px;
 }
 
-.social-link-group > li > a {
+.social-link-group a {
   display: flex;
 }
 
-.social-link-group > li > a {
-  color: var(--off-black);
-}
-
-.social-link-group > li > a:hover {
+.social-link-group a:hover {
   color: var(--hotpink);
 }
 
@@ -100,138 +80,46 @@ ul {
   height: calc(24px * var(--h, 22) / var(--glyph-h));
 }
 
-.social-link-group .icon-instagram { --glyph-h: 20; }
-.social-link-group .icon-youtube { --glyph-h: 14; --h: 19; }
-.social-link-group .icon-linkedin { --glyph-h: 18; }
-.social-link-group .icon-envelope { --glyph-h: 16; --h: 19; }
+.icon-instagram { --glyph-h: 20; }
+.icon-youtube { --glyph-h: 14; --h: 19; }
+.icon-linkedin { --glyph-h: 18; }
+.icon-envelope { --glyph-h: 16; --h: 19; }
 
-.items > section {
-  padding: 10px;
-  margin-right: 6px;
-  margin-bottom: 6px;
-  border: 2px solid var(--gray);
-  flex: 0 48%;
-}
-
-.collection {
-  margin-bottom: 40px;
-}
-
-.collection > h2 {
-  color: var(--hotpink);
-  border-bottom: 2px dotted var(--hotpink);
-  margin-bottom: 20px;
-  font-weight: 100;
-  letter-spacing: -1px;
-}
-
-.items > section h3 {
-  font-size: 24px;
-  text-transform: uppercase;
-  letter-spacing: -1px;
-  line-height: 1;
-  margin-bottom: 8px;
-}
-
-.items > section .cover:hover {
-  text-decoration: underline;
-}
-
-.items > section > p {
-  letter-spacing: -1px;
-  margin-bottom: 8px;
-}
-
-.items > section > .link {
-  margin-right: 5px;
-}
-
-.items > section > a > i {
-  font-size: 30px;
-}
-
-.items > section > a:hover > i {
-  color: var(--hotpink);
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  font-style: italic;
-  margin-bottom: 6px;
-}
-
-.tags > div {
-  margin-right: 4px;
-  margin-bottom: 4px;
-  background-color: var(--hotpink);
-  color: rgb(255,255,255);
-  padding: 2px 5px;
-  font-size: 14px;
-}
-
-.items > section > img {
-  display: block;
-  margin-bottom: 8px;
-}
-
-.items {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.featured {
-  flex-direction: column;
-}
-
-.footer {
-  text-align: center;
-  font-size: 14px;
-  letter-spacing: -1px;
-}
+/* Videos */
 
 .main {
-  flex: 1;
-  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  width: 100%;
 }
 
-.under-construction {
-  font-size: 18px;
-  text-transform: uppercase;
+.video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+.footer {
+  font-size: 14px;
   letter-spacing: -1px;
-  line-height: 1;
-  padding: 10px;
-  border: 2px solid var(--gray);
-  flex: 0 48%;
   text-align: center;
 }
 
-.video-embed {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  aspect-ratio: 16 / 9;
-}
-
-.video-embed iframe {
-  width: 100%;
-  height: 100%;
-}
 @media (min-width: 900px) {
   .container {
     max-width: 1000px;
   }
 
+  /* First video featured full width, the rest in two columns. */
   .main {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 24px;
   }
 
-  .main > .video-embed:first-child {
+  .video:first-child {
     grid-column: 1 / -1;
   }
 }
