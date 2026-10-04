@@ -1,0 +1,22 @@
+{
+  "name": "modernratio",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markvicuna/modernratio.git"
+  },
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/markvicuna/modernratio/issues"
+  },
+  "homepage": "https://github.com/markvicuna/modernratio#readme",
+  "dependencies": {
+    "astro": "^7.3.5"
+  },
+  "private": true
+}

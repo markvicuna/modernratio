@@ -69,21 +69,34 @@ ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
   margin-top: 25px;
-  gap: 12px;
+  gap: 20px;
 }
 
 .social-link-group > li > a {
   display: flex;
 }
 
-.social-link-group > li > a:hover > i {
+.social-link-group > li > a {
+  color: var(--off-black);
+}
+
+.social-link-group > li > a:hover {
   color: var(--hotpink);
 }
 
-.social-link-group > li > a > i {
-  font-size: 30px;
-  text-align: center;
+.social-link-group svg {
+  display: block;
+  width: 32px;
+  height: 32px;
+}
+
+/* Instagram's glyph fills more of the grid than LinkedIn's, so shrink it
+   to match their visual height. */
+.social-link-group .icon-instagram {
+  transform: scale(0.9);
 }
 
 .items > section {
@@ -200,4 +213,19 @@ ul {
 .video-embed iframe {
   width: 100%;
   height: 100%;
+}
+@media (min-width: 900px) {
+  .container {
+    max-width: 1000px;
+  }
+
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .main > .video-embed:first-child {
+    grid-column: 1 / -1;
+  }
 }
