@@ -1,7 +1,16 @@
 ---
 import '../styles/style.css';
 
-const { title = 'Mark Vicuña' } = Astro.props;
+const {
+  title = 'Mark Vicuña, Filmmaker / Developer in Helsinki',
+  description = 'Mark Vicuña, filmmaker and developer based in Helsinki, Finland. Documenting process, space & creative practice.',
+  image = '/og-image.jpg',
+  imageAlt = 'A black dot and a red slash on grainy paper',
+} = Astro.props;
+
+// Absolute URLs (Astro.site comes from astro.config.mjs) for share previews.
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const imageUrl = new URL(image, Astro.site).href;
 ---
 
 <!doctype html>
@@ -16,12 +25,30 @@ const { title = 'Mark Vicuña' } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@80,900&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.gstatic.com" />
-    <meta
-      name="description"
-      content="Mark Vicuña, filmmaker based in Helsinki, Finland. Documenting process, space & creative practice."
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#f1e9db" />
+
+    <!-- Open Graph / Twitter share previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Mark Vicuña" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content={imageAlt} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
+    <meta name="twitter:image:alt" content={imageAlt} />
+
+    <slot name="head" />
   </head>
   <body>
     <!-- Roughens the edges of the decorative shapes so they look inked. -->

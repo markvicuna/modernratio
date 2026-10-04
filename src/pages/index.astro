@@ -10,18 +10,54 @@ const links = [
 
 // YouTube videos, newest first. The first one is featured.
 const videos = [
-  { id: 'jyJ9Xpx1SMI', title: 'Minestrone Tapes', year: 2026 },
-  { id: 'E78VMQqGDb0', title: 'Eemeli Sahimaa, Practice Of / What Would I Do Without', year: 2025 },
-  { id: 'WsB-0KY_waI', title: 'Paul Flanders, Kudos Collection', year: 2025 },
-  { id: 'VyXuaYAQ-dU', title: 'Rudi Merz, Play in Progress', year: 2024 },
-  { id: 'pqkWx4DrbwQ', title: 'Lennart Engels, Sauna Stone Lab', year: 2025 },
-  { id: 'W4NNDY4X9cc', title: 'Marika Maijala, Island Artist', year: 2024 },
-];
+  { id: 'jyJ9Xpx1SMI', title: 'Minestrone Tapes', published: '2026-10-04T05:01:24-07:00' },
+  { id: 'E78VMQqGDb0', title: 'Eemeli Sahimaa, Practice Of / What Would I Do Without', published: '2025-01-09T14:15:01-08:00' },
+  { id: 'WsB-0KY_waI', title: 'Paul Flanders, Kudos Collection', published: '2025-01-08T12:24:58-08:00' },
+  { id: 'VyXuaYAQ-dU', title: 'Rudi Merz, Play in Progress', published: '2024-09-19T00:00:19-07:00' },
+  { id: 'pqkWx4DrbwQ', title: 'Lennart Engels, Sauna Stone Lab', published: '2025-01-09T08:00:51-08:00' },
+  { id: 'W4NNDY4X9cc', title: 'Marika Maijala, Island Artist', published: '2024-06-12T04:00:26-07:00' },
+].map((v) => ({ ...v, year: new Date(v.published).getUTCFullYear() }));
 
 const [featured, ...recent] = videos;
+
+// Structured data so search engines understand who this is and what the videos are.
+const siteUrl = new URL('/', Astro.site).href;
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'Person',
+      '@id': `${siteUrl}#person`,
+      name: 'Mark Vicuña',
+      jobTitle: 'Filmmaker and Developer',
+      url: siteUrl,
+      description: 'Filmmaker and developer based in Helsinki, Finland. Documenting process, space & creative practice.',
+      address: { '@type': 'PostalAddress', addressLocality: 'Helsinki', addressCountry: 'FI' },
+      sameAs: links.map((l) => l.href),
+    },
+    {
+      '@type': 'WebSite',
+      '@id': `${siteUrl}#website`,
+      url: siteUrl,
+      name: 'Mark Vicuña',
+      publisher: { '@id': `${siteUrl}#person` },
+    },
+    ...videos.map((v) => ({
+      '@type': 'VideoObject',
+      name: v.title,
+      description: `${v.title}, a video by Mark Vicuña.`,
+      thumbnailUrl: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`,
+      uploadDate: v.published,
+      embedUrl: `https://www.youtube.com/embed/${v.id}`,
+      contentUrl: `https://www.youtube.com/watch?v=${v.id}`,
+      creator: { '@id': `${siteUrl}#person` },
+    })),
+  ],
+};
 ---
 
 <Layout>
+  <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <div class="container">
     <header class="bio">
       <div>
@@ -33,7 +69,7 @@ const [featured, ...recent] = videos;
         <ul class="links">
           {links.map((l) => (
             <li>
-              <a href={l.href} target="_blank">{l.label}</a>
+              <a href={l.href} target="_blank" rel="noopener noreferrer">{l.label}</a>
             </li>
           ))}
         </ul>
