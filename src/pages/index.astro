@@ -8,14 +8,14 @@ const links = [
   { href: 'https://www.linkedin.com/in/mark-vicu%C3%B1a-487614207/', label: 'LinkedIn' },
 ];
 
-// YouTube video ids, newest first. The first one is featured.
+// YouTube videos, newest first. The first one is featured.
 const videos = [
-  'jyJ9Xpx1SMI',
-  'E78VMQqGDb0',
-  'WsB-0KY_waI',
-  'VyXuaYAQ-dU',
-  'pqkWx4DrbwQ',
-  'W4NNDY4X9cc',
+  { id: 'jyJ9Xpx1SMI', title: 'Minestrone Tapes', year: 2026 },
+  { id: 'E78VMQqGDb0', title: 'Eemeli Sahimaa, Practice Of / What Would I Do Without', year: 2025 },
+  { id: 'WsB-0KY_waI', title: 'Paul Flanders, Kudos Collection', year: 2025 },
+  { id: 'VyXuaYAQ-dU', title: 'Rudi Merz, Play in Progress', year: 2024 },
+  { id: 'pqkWx4DrbwQ', title: 'Lennart Engels, Sauna Stone Lab', year: 2025 },
+  { id: 'W4NNDY4X9cc', title: 'Marika Maijala, Island Artist', year: 2024 },
 ];
 
 const [featured, ...recent] = videos;
@@ -26,7 +26,7 @@ const [featured, ...recent] = videos;
     <header class="bio">
       <div>
         <h1 class="logo">Mark Vicuña</h1>
-        <p class="note">Developer / Videographer</p>
+        <p class="note">Developer / Filmmaker</p>
       </div>
       <div class="bio-row">
         <a href="mailto:mark.rvicuna@gmail.com">mark.rvicuna@gmail.com</a>
@@ -42,14 +42,34 @@ const [featured, ...recent] = videos;
     <main class="main">
       <section>
         <h2 class="section-label">Featured project</h2>
-        <Video id={featured} number={videos.length} />
+        <Video {...featured} />
       </section>
       <section>
         <h2 class="section-label">Recent work</h2>
         <div class="grid">
-          {recent.map((id, i) => (
-            <Video id={id} number={videos.length - 1 - i} />
+          {recent.map((video) => (
+            <Video {...video} />
           ))}
+        </div>
+      </section>
+      <section>
+        <h2 class="section-label">About</h2>
+        <div class="about-body">
+          <p class="logline">Documenting process, space &amp; creative practice.</p>
+          <dl class="details">
+            <div>
+              <dt>Based in</dt>
+              <dd>Helsinki, Finland</dd>
+            </div>
+            <div>
+              <dt>Available for</dt>
+              <dd>Commissions and collaborations</dd>
+            </div>
+            <div>
+              <dt>Contact</dt>
+              <dd><a href="mailto:mark.rvicuna@gmail.com">mark.rvicuna@gmail.com</a></dd>
+            </div>
+          </dl>
         </div>
       </section>
     </main>

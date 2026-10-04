@@ -1,15 +1,16 @@
 ---
-const { id, number } = Astro.props;
+const { id, title, year } = Astro.props;
 ---
 
 <figure class="video-item">
   <iframe
     class="video"
     src={`https://www.youtube.com/embed/${id}`}
-    title="YouTube video player"
+    title={title}
+    loading="lazy"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
     referrerpolicy="strict-origin-when-cross-origin"
     allowfullscreen
   />
-  <figcaption class="index">MV/F/{String(number).padStart(3, '0')}</figcaption>
+  <figcaption class="index">{title} / {year}</figcaption>
 </figure>

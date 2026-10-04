@@ -55,10 +55,7 @@ ul {
 
 .deco {
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40rem;
+  inset: 0;
   overflow: hidden;
   pointer-events: none;
 }
@@ -91,6 +88,45 @@ ul {
 .container,
 .footer {
   position: relative;
+}
+
+/* Piece: big black circle cropped by the left edge, by Recent work
+   (hidden for now: remove the display: none lines to bring it back) */
+
+.main > section {
+  position: relative;
+}
+
+.main > section:nth-child(2)::before {
+  display: none;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: 5rem;
+  left: -7rem;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  background-color: var(--ink);
+  background-image: var(--paper-specks), var(--paper-grain);
+  filter: url(#rough);
+}
+
+/* Piece: torn red block behind the Recent work label row
+   (hidden for now) */
+
+.main > section:nth-child(2)::after {
+  display: none;
+  content: '';
+  position: absolute;
+  z-index: -1;
+  top: -1rem;
+  right: -1.5rem;
+  width: 5.5rem;
+  height: 2.25rem;
+  background-color: var(--red);
+  background-image: var(--paper-specks), var(--paper-grain);
+  filter: url(#rough);
 }
 
 /* Header */
@@ -129,12 +165,56 @@ ul {
 .links {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.5rem 2rem;
+  gap: 0.5rem 0;
   text-transform: uppercase;
+}
+
+/* Slash between links, outside the anchor so it doesn't turn red on hover. */
+.links li + li::before {
+  content: '/';
+  margin: 0 0.75rem;
 }
 
 a:hover {
   color: var(--red);
+}
+
+/* About */
+
+.logline {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.0625rem;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+.about-body {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+}
+
+.details > div {
+  display: grid;
+  grid-template-columns: 7.5rem 1fr;
+  gap: 1rem;
+}
+
+.details dt {
+  color: var(--red);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  line-height: 1.4rem;
+  text-transform: uppercase;
 }
 
 /* Videos */
@@ -183,6 +263,7 @@ a:hover {
   font-size: 0.75rem;
   font-weight: 500;
   letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
 
 .footer {
@@ -206,11 +287,29 @@ a:hover {
     height: 30rem;
   }
 
+  .main > section:nth-child(2)::after {
+    top: -1.5rem;
+    right: -2rem;
+    width: 10rem;
+    height: 4rem;
+  }
+
   .deco-dot {
     top: 6rem;
     left: 38%;
     width: 4rem;
     height: 4rem;
+  }
+
+  .logline {
+    font-size: 2.75rem;
+  }
+
+  .about-body {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 3rem;
+    align-items: start;
   }
 
   /* Recent work in two columns. */
