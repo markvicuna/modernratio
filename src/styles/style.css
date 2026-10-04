@@ -1,6 +1,16 @@
 :root {
-  --off-black: rgb(59, 59, 59);
-  --hotpink: rgb(255, 40, 180);
+  --paper: rgb(241, 233, 219);
+  /* Paper texture, all generated: fine grain, sparse specks, soft mottling. */
+  --paper-grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .3 0 0 0 0 .22 0 0 0 0 .12 0 0 0 .9 -.28'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.55'/%3E%3C/svg%3E");
+  --paper-specks: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='500'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.45' numOctaves='1' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .2 0 0 0 0 .14 0 0 0 0 .08 14 0 0 0 -10.6'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)' opacity='.6'/%3E%3C/svg%3E");
+  --paper-mottle:
+    radial-gradient(ellipse 60% 40% at 15% 20%, rgba(120, 90, 50, 0.10), transparent),
+    radial-gradient(ellipse 50% 45% at 85% 55%, rgba(120, 90, 50, 0.09), transparent),
+    radial-gradient(ellipse 55% 35% at 30% 90%, rgba(150, 120, 80, 0.08), transparent);
+  --ink: rgb(20, 18, 16);
+  --red: rgb(196, 69, 45);
+  --font-display: Oswald, 'Arial Narrow', sans-serif;
+  --font-mono: 'IBM Plex Mono', Menlo, Consolas, monospace;
 }
 
 * {
@@ -10,14 +20,16 @@
 }
 
 body {
-  padding: 20px;
-  font-family: Arimo, Helvetica, Arial, sans-serif;
-  font-weight: 500;
-  color: var(--off-black);
-}
-
-h1 {
-  font-weight: 700;
+  padding: 1.5rem;
+  background-color: var(--paper);
+  background-image: var(--paper-specks), var(--paper-grain), var(--paper-mottle);
+  /* specks, grain, then the three mottle gradients */
+  background-size: 500px 500px, 300px 300px, 100% 1400px, 100% 1400px, 100% 1400px;
+  background-repeat: repeat, repeat, repeat-y, repeat-y, repeat-y;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 400;
 }
 
 a {
@@ -32,66 +44,61 @@ ul {
 .container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  max-width: 700px;
-  margin: 50px auto;
+  gap: 1rem;
+  max-width: 68.75rem;
+  margin: 1.5rem auto 2.5rem;
 }
 
 /* Header */
 
 .bio {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  padding-bottom: 1.25rem;
 }
 
-.bio > h1 {
-  line-height: 1;
-  margin-bottom: 2px;
-  letter-spacing: -1px;
+.logo {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.125rem;
+  line-height: 1.15;
+  text-transform: uppercase;
 }
 
 .bio .note {
-  font-size: 14px;
-  font-style: italic;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-.social-link-group {
+.bio-row {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-top: 25px;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
 }
 
-.social-link-group a {
+.links {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  text-transform: uppercase;
 }
 
-.social-link-group a:hover {
-  color: var(--hotpink);
+a:hover {
+  color: var(--red);
 }
-
-.social-link-group svg {
-  display: block;
-  /* Each glyph fills a different part of its 24-unit grid, so size the box
-     per icon (24px * --h / glyph height); --h defaults to 22px glyph height. */
-  width: calc(24px * var(--h, 22) / var(--glyph-h));
-  height: calc(24px * var(--h, 22) / var(--glyph-h));
-}
-
-.icon-instagram { --glyph-h: 20; }
-.icon-youtube { --glyph-h: 14; --h: 19; }
-.icon-linkedin { --glyph-h: 18; }
-.icon-envelope { --glyph-h: 16; --h: 19; }
 
 /* Videos */
 
 .main {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  width: 100%;
+  gap: 1.75rem;
 }
 
 .video {
@@ -99,27 +106,40 @@ ul {
   width: 100%;
   aspect-ratio: 16 / 9;
   border: 0;
+  background: var(--ink);
+}
+
+.index {
+  margin-top: 0.5rem;
+  color: var(--red);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
 }
 
 .footer {
-  font-size: 14px;
-  letter-spacing: -1px;
-  text-align: center;
+  max-width: 68.75rem;
+  margin: 0 auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--ink);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
-@media (min-width: 900px) {
-  .container {
-    max-width: 1000px;
+@media (min-width: 56.25rem) {
+  body {
+    padding: 2.5rem;
   }
 
   /* First video featured full width, the rest in two columns. */
   .main {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
+    gap: 2rem 1.75rem;
   }
 
-  .video:first-child {
+  .video-item:first-child {
     grid-column: 1 / -1;
   }
 }
