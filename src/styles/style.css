@@ -335,12 +335,12 @@ a:hover {
   }
 }
 
-/* Inked print effect on text: soft irregular edges and uneven ink density.
-   Headings get the fade only; other text also gets sparse specks. */
+/* Inked print effect on text. Headings keep clean edges and get only the
+   uneven ink density (fade). Other text also gets irregular edges and sparse
+   specks. */
 
 .logo,
 .section-label {
-  filter: url(#ink-rough);
   -webkit-mask-image: var(--ink-fade);
   mask-image: var(--ink-fade);
 }
