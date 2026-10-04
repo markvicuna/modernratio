@@ -9,12 +9,17 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: Arimo, Helvetica, Arial, sans-serif;
     color: var(--off-black);
 }
 
 body {
     padding: 20px;
+    font-weight: 500;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
 }
 
 a {
@@ -46,7 +51,7 @@ ul {
 .bio > h1 {
   line-height: 1;
   margin-bottom: 2px;
-  letter-spacing: -3px;
+  letter-spacing: -1px;
 }
 
 .bio > img {
@@ -72,7 +77,7 @@ ul {
   justify-content: center;
   align-items: center;
   margin-top: 25px;
-  gap: 20px;
+  gap: 10px;
 }
 
 .social-link-group > li > a {
@@ -89,15 +94,16 @@ ul {
 
 .social-link-group svg {
   display: block;
-  width: 32px;
-  height: 32px;
+  /* Each glyph fills a different part of its 24-unit grid, so size the box
+     per icon (24px * --h / glyph height); --h defaults to 22px glyph height. */
+  width: calc(24px * var(--h, 22) / var(--glyph-h));
+  height: calc(24px * var(--h, 22) / var(--glyph-h));
 }
 
-/* Instagram's glyph fills more of the grid than LinkedIn's, so shrink it
-   to match their visual height. */
-.social-link-group .icon-instagram {
-  transform: scale(0.9);
-}
+.social-link-group .icon-instagram { --glyph-h: 20; }
+.social-link-group .icon-youtube { --glyph-h: 14; --h: 19; }
+.social-link-group .icon-linkedin { --glyph-h: 18; }
+.social-link-group .icon-envelope { --glyph-h: 16; --h: 19; }
 
 .items > section {
   padding: 10px;
